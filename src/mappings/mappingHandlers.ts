@@ -59,7 +59,7 @@ export async function handleAssetTransferredEvent(event: SubstrateEvent): Promis
   // Get data from the event
   const {
     event: {
-      data: [assetId, from, to, amount],
+      data: [assetId, from, to],
     },
   } = event;
 
@@ -75,7 +75,7 @@ export async function handleAssetTransferredEvent(event: SubstrateEvent): Promis
     assetId: Number(assetId.toString()),
     fromId: fromAccount.id,
     toId: toAccount.id,
-    amount: (amount as Balance).toBigInt(),
+    // amount: (amount as Balance).toBigInt(),
   });
 
   fromAccount.lastTransferBlock = blockNumber;
@@ -91,7 +91,7 @@ export async function handleAssetIssuedEvent(event: SubstrateEvent): Promise<voi
   // Get data from the event
   const {
     event: {
-      data: [assetId, owner, amount],
+      data: [assetId, owner],
     },
   } = event;
 
@@ -105,7 +105,7 @@ export async function handleAssetIssuedEvent(event: SubstrateEvent): Promise<voi
     date: event.block.timestamp,
     assetId: Number(assetId.toString()),
     ownerId: account.id,
-    amount: (amount as Balance).toBigInt(),
+    // amount: (amount as Balance).toBigInt(),
   });
 
   account.lastTransferBlock = blockNumber;
@@ -120,7 +120,7 @@ export async function handleLiquidStakingStakedEvent(event: SubstrateEvent): Pro
   // Get data from the event
   const {
     event: {
-      data: [who, amount],
+      data: [who],
     },
   } = event;
 
@@ -133,7 +133,7 @@ export async function handleLiquidStakingStakedEvent(event: SubstrateEvent): Pro
     blockNumber,
     date: event.block.timestamp,
     whoId: account.id,
-    amount: (amount as Balance).toBigInt(),
+    // amount: (amount as Balance).toBigInt(),
   });
 
   account.lastTransferBlock = blockNumber;

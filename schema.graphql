@@ -38,10 +38,10 @@ type AssetIssued @entity {
   The block height of the asset mint
   """
   blockNumber: Int!
-  """
-  The amount of the asset that is minted
-  """
-  amount: BigInt!
+  # """
+  # The amount of the asset that is minted
+  # """
+  # amount: BigInt!
   """
   The date of the asset mint
   """
@@ -65,10 +65,10 @@ type AssetTransferred @entity {
   The block height of the asset transfer
   """
   blockNumber: Int!
-  """
-  The amount of the asset that is transferred
-  """
-  amount: BigInt!
+  # """
+  # The amount of the asset that is transferred
+  # """
+  # amount: BigInt!
   """
   The date of the asset transfer
   """
@@ -104,10 +104,10 @@ type LiquidStakingStaked @entity {
   The account that the asset is transferred from
   """
   who: Account!
-  """
-  The amount of the asset that is transferred
-  """
-  amount: BigInt!
+  # """
+  # The amount of the asset that is transferred
+  # """
+  # amount: BigInt!
 }
 
 type Account @entity {
@@ -127,9 +127,9 @@ type Account @entity {
   The most recent block on which we see a transfer involving this account
   """
   lastTransferBlock: Int
-  sentTransfers: [Transfer] @derivedFrom(field: "from") # These are virtual properties to help us navigate to the correct foreign key of Transfer
-  receivedTransfers: [Transfer] @derivedFrom(field: "to") # These are virtual properties to help us navigate to the correct foreign key of Transfer
-  sentAssetTransfers: [AssetTransferred] @derivedFrom(field: "from") # These are virtual properties to help us navigate to the correct foreign key of AssetTransfer
-  receivedAssetTransfers: [AssetTransferred] @derivedFrom(field: "to") # These are virtual properties to help us navigate to the correct foreign key of AssetTransfer
-  receivedAssetIssues: [AssetIssued] @derivedFrom(field: "owner") # These are virtual properties to help us navigate to the correct foreign key of AssetIssued
+  # sentTransfers: [Transfer] @derivedFrom(field: "from") # These are virtual properties to help us navigate to the correct foreign key of Transfer
+  # receivedTransfers: [Transfer] @derivedFrom(field: "to") # These are virtual properties to help us navigate to the correct foreign key of Transfer
+  # sentAssetTransfers: [AssetTransferred] @derivedFrom(field: "from") # These are virtual properties to help us navigate to the correct foreign key of AssetTransfer
+  # receivedAssetTransfers: [AssetTransferred] @derivedFrom(field: "to") # These are virtual properties to help us navigate to the correct foreign key of AssetTransfer
+  # receivedAssetIssues: [AssetIssued] @derivedFrom(field: "owner") # These are virtual properties to help us navigate to the correct foreign key of AssetIssued
 }
